@@ -56,25 +56,26 @@ char* loggerTypesToString(enum loggerTypes e){
             return "debug";
             break;
         default:
-            return (char*)calloc(1,sizeof(char)); break;
+            return (char*)calloc(1,sizeof(char));
+            break;
     }
 }
 
 void appendLoggerStr(logElementStr* elementIn){
     FILE* openLoggerFile = fopen(logFile,"a+");
-    fprintf(openLoggerFile,"[%s][%ld]%s\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
+    fprintf(openLoggerFile,"[%s]\t[%ld]\t%s\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
     fclose(openLoggerFile);
 }
 
 void appendLoggerFloat(logElementFloat* elementIn){
     FILE* openLoggerFile = fopen(logFile,"a+");
-    fprintf(openLoggerFile,"[%s][%ld]%f\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
+    fprintf(openLoggerFile,"[%s]\t[%ld]\t%f\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
     fclose(openLoggerFile);
 }
 
 void appendLoggerInt(logElementInt* elementIn){
     FILE* openLoggerFile = fopen(logFile,"a+");
-    fprintf(openLoggerFile,"[%s][%ld]%i\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
+    fprintf(openLoggerFile,"[%s]\t[%ld]\t%i\n",loggerTypesToString(elementIn->logType),(time(NULL)),elementIn->value);
     fclose(openLoggerFile);
 }
 

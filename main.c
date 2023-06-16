@@ -6,7 +6,7 @@ int main(){
     setLogFile("./main.logsp");
     logElementInt* logEl = (logElementInt*)calloc(1,sizeof(logElementInt)); 
 
-	logEl->logType = info;
+	logEl->logType = debug;
 	logEl->value   = 5;
     
 	appendLoggerInt(logEl);
